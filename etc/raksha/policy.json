@@ -1,0 +1,13 @@
+{
+    "context_is_admin": [["role:admin"]],
+    "admin_or_owner":  [["is_admin:True"], ["project_id:%(project_id)s"]],
+    "default": [["rule:admin_or_owner"]],
+    "admin_api": [["is_admin:True"]],
+    "backupjob:create": [],
+    "backupjob:list": [],
+    "backupjob:prepare": [],
+    "backupjob:execute": [],
+    "backupjobrun:create": [],
+    "backupjobrun:list": [],
+    "backupjobrun:restore": []
+}
