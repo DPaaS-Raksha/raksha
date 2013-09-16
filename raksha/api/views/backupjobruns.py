@@ -65,7 +65,8 @@ class ViewBuilder(common.ViewBuilder):
                 'user_id': backupjobrun.get('user_id'),
                 'project_id': backupjobrun.get('project_id'),
                 'status': backupjobrun.get('status'),
-                'links': self._get_links(request, backupjobrun['id'])
+                #'links': self._get_links(request, backupjobrun['id'],
+                'name':  backupjobrun['id'],
             }
         }
 

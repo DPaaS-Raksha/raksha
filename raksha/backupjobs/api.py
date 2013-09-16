@@ -141,12 +141,17 @@ class API(base.Base):
         rv = self.db.backupjobrun_show(context, backupjobrun_id)
         return dict(rv.iteritems())
     
-    def backupjobrun_get_all(self, context, search_opts={}):
-        if context.is_admin:
+    def backupjobrun_get_all(self, context, backupjob_id=None):
+        if backupjob_id:
+             backupjobruns = self.db.backupjobrun_get_all_by_project_backupjob(
+                                                    context,
+                                                    context.project_id,
+                                                    backupjob_id)
+        elif context.is_admin:
             backupjobruns = self.db.backupjobrun_get_all(context)
         else:
-            backupjobruns = self.db.backupjobrun_get_all_by_project(context,
-                                                        context.project_id)
+            backupjobruns = self.db.backupjobrun_get_all_by_project(
+                                        context,context.project_id)
         return backupjobruns
     
     def backupjobrun_delete(self, context, backupjobrun_id):

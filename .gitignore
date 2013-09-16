@@ -8,6 +8,8 @@
 .coverage
 .tox
 .venv
+.project
+.pydevproject
 AUTHORS
 Authors
 build/*
@@ -23,3 +25,4 @@ keeper
 keys
 local_settings.py
 tags
+

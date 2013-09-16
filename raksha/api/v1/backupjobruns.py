@@ -143,7 +143,7 @@ class BackupJobRunsController(wsgi.Controller):
     @wsgi.serializers(xml=BackupJobRunsTemplate)
     def index(self, req):
         """Returns a summary list of backupjobruns."""
-        return self._get_backupjobrunss(req, is_detail=False)
+        return self._get_backupjobruns(req, is_detail=False)
 
     @wsgi.serializers(xml=BackupJobRunsTemplate)
     def detail(self, req):
@@ -153,7 +153,12 @@ class BackupJobRunsController(wsgi.Controller):
     def _get_backupjobruns(self, req, is_detail):
         """Returns a list of backup job runs, transformed through view builder."""
         context = req.environ['raksha.context']
-        backupjobruns = self.backupjob_api.backupjobrun_get_all(context)
+        backupjob_id = req.GET.get('backupjob_id', None)
+        if backupjob_id:
+            backupjobruns = self.backupjob_api.backupjobrun_get_all(context, backupjob_id)
+        else:
+            backupjobruns = self.backupjob_api.backupjobrun_get_all(context)
+   
         limited_list = common.limited(backupjobruns, req)
 
         if is_detail:

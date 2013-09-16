@@ -4,6 +4,8 @@
 # Administrator of the National Aeronautics and Space Administration.
 # All Rights Reserved.
 #
+# Copyright (c) 2013 TrilioData, Inc.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at

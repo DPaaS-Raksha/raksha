@@ -17,10 +17,10 @@
 #    under the License.
 
 """
-:mod:`raksha` -- Cloud IaaS Platform
+:mod:`raksha` -- Cloud DPaaS Platform
 ===================================
 
 .. automodule:: raksha
    :platform: Unix
-   :synopsis: Infrastructure-as-a-Service Cloud platform.
+   :synopsis: DataProtection-as-a-Service Cloud platform.
 """

@@ -204,11 +204,18 @@ def backupjobrun_create(context, values):
 
 def backupjobrun_get(context, backupjobrun_id, session=None):
     return IMPL.backupjobrun_get(context, backupjobrun_id, session)
+    
+def backupjobrun_get_all(context, backupjob_id=None):
+    return IMPL.backupjobrun_get_all(context, backupjob_id)    
 
 def backupjobrun_get_all_by_project(context, project_id):
     """Get all backups belonging to a project."""
     return IMPL.backupjobrun_get_all_by_project(context, project_id)
-
+    
+def backupjobrun_get_all_by_project_backupjob(context, project_id, backupjob_id):
+    """Get all backups belonging to a project and backupjob"""
+    return IMPL.backupjobrun_get_all_by_project_backupjob(context, project_id, backupjob_id)
+    
 def backupjobrun_show(context, backupjobrun_id):
     """Get more details of the  backupjobrun or raise if it does not exist."""
     return IMPL.backupjobrun_show(context, backupjobrun_id)

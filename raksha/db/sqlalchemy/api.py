@@ -1033,6 +1033,13 @@ def backupjobrun_get_all_by_project(context, project_id):
 
     return model_query(context, models.BackupJobRuns).\
         filter_by(project_id=project_id).all()
+        
+@require_context
+def backupjobrun_get_all_by_project_backupjob(context, project_id, backupjob_id):
+    authorize_project_context(context, project_id)
+    return model_query(context, models.BackupJobRuns).\
+        filter_by(project_id=project_id).\
+        filter_by(backupjob_id=backupjob_id).all()
 
 @require_context
 def backupjobrun_show(context, backupjobrun_id, session=None):

@@ -923,7 +923,7 @@ class LibvirtDriver(driver.ComputeDriver):
         restored_instance_name = uuid.uuid4().hex
         compute_service = nova.API()
         restored_compute_image = compute_service.get_image(context, restored_image['id'])
-        restored_compute_flavor = compute_service.get_flavor(context, 'm1.tiny')
+        restored_compute_flavor = compute_service.get_flavor(context, 'm1.small')
         restored_instance = compute_service.create_server(context, restored_instance_name, restored_compute_image, restored_compute_flavor)
         #attach volumes 
         for device, restored_volume in device_restored_volumes.iteritems():
