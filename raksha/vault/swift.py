@@ -36,6 +36,7 @@ import json
 import os
 import socket
 import StringIO
+import time
 
 import eventlet
 from oslo.config import cfg
@@ -57,7 +58,7 @@ swiftbackup_service_opts = [
                default='backupjobs',
                help='The default Swift container to use for backup job instances'),
     cfg.IntOpt('backup_swift_object_size',
-               default=52428800,
+               default=524288000,
                help='The size in bytes of Swift backup objects'),
     cfg.IntOpt('backupjob_swift_retry_attempts',
                default=3,
@@ -217,6 +218,7 @@ class SwiftBackupService(base.Base):
         object_name = None
         #TODO(gbasava): make this only one file backup...dynamic large object
         while True:
+            time.sleep(10)
             data_block_size_bytes = self.data_block_size_bytes
             object_name = '%s/%s_%05d' % (object_prefix, backup_metadata['vm_resource_backup_id'], object_id)
             obj = {}
